@@ -1,14 +1,14 @@
 var express = require('express'),
 graphqlHTTP = require('express-graphql'),
-{buildSchema} = require('graphql'),
+{ buildSchema } = require('graphql'),
 schema = buildSchema(`
     type Query {
         hello: String
     }
 `),
-root = {hello:()=>'Gello Woo'},
+root = { hello: ()=>'Gello Woo' },
 app = express();
-app.use('/graphql',graphqlHTTP({
+app.use('/graphql', graphqlHTTP({
     schema: schema,
     rootValue: root,
     graphiql: true
